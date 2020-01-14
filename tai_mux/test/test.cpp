@@ -127,7 +127,7 @@ tai_status_t create_module(const std::string& location, tai_object_id_t& m_id) {
 }
 
 int main() {
-    tai_log_set(tai_api_t(0), TAI_LOG_LEVEL_INFO);
+    tai_log_set(tai_api_t(0), TAI_LOG_LEVEL_INFO, nullptr);
 
     tai_service_method_table_t services;
 

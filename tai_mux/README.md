@@ -60,7 +60,7 @@ $ make
 ```
 $ cd test
 $ make
-$ ./run.sh
+$ ./run.sh static.json
 ```
 
 ### Licensing
