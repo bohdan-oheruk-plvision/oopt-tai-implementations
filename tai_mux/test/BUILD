@@ -10,7 +10,10 @@ cc_binary(
         "test.cpp",
     ],
     deps = [
-        "//tai_mux:tai-mux",
+        "//tai_mux:libtai-mux",
+        "@com_github_oopt_tai//:libmetatai",
+        "@com_github_oopt_tai//:tai_hdrs",
+        "@com_github_oopt_tai//:meta_hdrs",
     ],
     visibility = [ "//visibility:public" ],
 )
