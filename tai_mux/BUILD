@@ -31,13 +31,80 @@ cc_library(
     visibility = [ "//visibility:public" ],
 )
 
+cc_library(
+    name = "custom_attrs",
+    hdrs = [
+        "custom_attrs/mux_hostif.h",
+        "custom_attrs/mux_module.h",
+        "custom_attrs/mux_netif.h",
+    ],
+    deps = [
+        # "@com_github_oopt_tai//:libmetatai",
+        "@com_github_oopt_tai//:tai_hdrs",
+        "@com_github_oopt_tai//:meta_hdrs",
+    ],
+    includes = [
+        "custom_attrs/",
+    ]
+)
+
+cc_library(
+    name = "help_lib",
+    hdrs = [
+        "oopt-tai/tools/lib/attribute.hpp",
+        "oopt-tai/tools/lib/exception.hpp",
+        "oopt-tai/tools/lib/logger.hpp",
+    ],
+    srcs = [
+        "oopt-tai/tools/lib/attribute.cpp",
+    ],
+    includes = [
+        "oopt-tai/tools/lib/",
+    ],
+    deps = [
+        # "@com_github_oopt_tai//:libmetatai",
+        "@com_github_oopt_tai//:tai_hdrs",
+        "@com_github_oopt_tai//:meta_hdrs",
+    ],
+    visibility = [ "//visibility:public" ],
+)
+
+cc_library(
+    name = "tai_framework",
+    hdrs = [
+        "oopt-tai/tools/framework/config.hpp",
+        "oopt-tai/tools/framework/fsm.hpp",
+        "oopt-tai/tools/framework/object.hpp",
+        "oopt-tai/tools/framework/platform.hpp",
+        # "oopt-tai/tools/framework/examples/basic/basic.hpp",
+    ],
+    srcs = [
+        # "oopt-tai/tools/framework/tai.cpp",
+        # "oopt-tai/tools/framework/examples/basic/basic.cpp",
+    ],
+    includes = [
+        "oopt-tai/tools/framework/",
+        # "oopt-tai/tools/framework/examples/basic",
+    ],
+    deps = [
+        "@com_github_oopt_tai//:tai_hdrs",
+        "@com_github_oopt_tai//:meta_hdrs",
+        ":help_lib",
+    ],
+    linkopts = [
+        "-fno-gnu-unique",
+    ],
+    visibility = [ "//visibility:public" ],
+)
+
 cc_binary(
     name = "libtai-mux.so",
     srcs = [
         "module_adapter.cpp",
         "mux.cpp",
         "static_platform_adapter.cpp",
-        "tai.cpp",
+        # "oopt-tai/tools/framework/tai.cpp",
+
         
         "json.hpp",
         "module_adapter.hpp",
@@ -49,6 +116,9 @@ cc_binary(
         "@com_github_oopt_tai//:libmetatai",
         "@com_github_oopt_tai//:tai_hdrs",
         "@com_github_oopt_tai//:meta_hdrs",
+        ":help_lib",
+        ":tai_framework",
+        ":custom_attrs",
     ],
     linkshared = True,
     linkopts = [

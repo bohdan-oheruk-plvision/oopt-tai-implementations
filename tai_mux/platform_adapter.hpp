@@ -11,6 +11,7 @@
 #include "tai.h"
 #include "attribute.hpp"
 #include "logger.hpp"
+#include "mux_module.h"
 
 #include "fsm.hpp"
 

@@ -11,6 +11,7 @@
 #include "module_adapter.hpp"
 #include "tai.h"
 #include "json.hpp"
+#include "mux_module.h"
 
 namespace tai::mux {
 

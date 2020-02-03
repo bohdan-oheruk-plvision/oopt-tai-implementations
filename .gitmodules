@@ -1,8 +1,8 @@
 [submodule "tai_ac400/oopt-tai"]
 	path = tai_ac400/oopt-tai
 	url = https://github.com/bohdan-oheruk-plvision/oopt-tai.git
-	branch = bazel-experimental
+	branch = new-bazel
 [submodule "tai_mux/oopt-tai"]
 	path = tai_mux/oopt-tai
 	url = https://github.com/bohdan-oheruk-plvision/oopt-tai.git
-	branch = bazel-experimental
+	branch = new-bazel
