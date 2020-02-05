@@ -6,3 +6,7 @@
 	path = tai_mux/oopt-tai
 	url = https://github.com/bohdan-oheruk-plvision/oopt-tai.git
 	branch = bazel-experimental
+[submodule "tai_sff/oopt-tai"]
+	path = tai_sff/oopt-tai
+	url = https://github.com/bohdan-oheruk-plvision/oopt-tai.git
+	branch = bazel-experimental
