@@ -2,6 +2,10 @@
 #include <iostream>
 #include "taimetadata.h"
 
+#include "custom_attrs/mux_hostif.h"
+#include "custom_attrs/mux_netif.h"
+#include "custom_attrs/mux_module.h"
+
 namespace tai::mux {
 
     static const std::string PLATFORM_ADAPTER = "TAI_MUX_PLATFORM_ADAPTER";
@@ -41,7 +45,7 @@ namespace tai::mux {
             m_pa = std::make_shared<StaticPlatformAdapter>(0, services);
             break;
         default:
-            ERROR("unsupported platform_adapter: %s", pa_name.c_str());
+            TAI_ERROR("unsupported platform_adapter: %s", pa_name.c_str());
             throw Exception(TAI_STATUS_NOT_SUPPORTED);
         }
     }

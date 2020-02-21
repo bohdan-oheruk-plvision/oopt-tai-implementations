@@ -12,6 +12,8 @@
 #include "attribute.hpp"
 #include "logger.hpp"
 
+#include "custom_attrs/mux_module.h"
+
 #include "fsm.hpp"
 
 namespace tai::mux {

@@ -17,14 +17,9 @@ git_repository(
 load("@io_bazel_rules_python//python:pip.bzl", "pip_import", "pip_repositories")
 pip_repositories()
 
-local_repository(
-    name = "com_github_oopt_tai",
-    path = "tai_mux/oopt-tai/",
-)
-
 pip_import(
     name = "tai_meta_deps",
-    requirements = "@com_github_oopt_tai//:pip-requirements.txt"
+    requirements = "//:pip-requirements.txt"
 )
 load("@tai_meta_deps//:requirements.bzl", meta_deps_pip_install = "pip_install")
 meta_deps_pip_install()
