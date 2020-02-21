@@ -248,6 +248,7 @@ cc_binary(
         "module_adapter.cpp",
         "mux.cpp",
         "static_platform_adapter.cpp",
+        "platform_adapter.cpp",
         
         "json.hpp",
         "module_adapter.hpp",

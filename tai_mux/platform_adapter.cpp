@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <cstring>
 
+#include "custom_attrs/mux_hostif.h"
+#include "custom_attrs/mux_netif.h"
+#include "custom_attrs/mux_module.h"
+
 namespace tai::mux {
 
     static void notification_callback(void* context, tai_object_id_t oid, uint32_t attr_count, tai_attribute_t const * const attr_list) {
@@ -27,7 +31,7 @@ namespace tai::mux {
             auto dst = std::make_shared<Attribute>(meta, src);
             auto ret = convert_oid(ctx->object_type, oid, dst, dst, true);
             if ( ret != TAI_STATUS_SUCCESS ) {
-                ERROR("failed to convert oid of attribute: %d", src.id);
+                TAI_ERROR("failed to convert oid of attribute: %d", src.id);
                 continue;
             }
             attrs.emplace_back(dst);
